@@ -63,7 +63,7 @@ brew install pipx # should be installed already with Brewfile
 pipx install poetry
 ```
 
-for poetry shell completions:
+for poetry shell completions, verify poetry is listed under `plugins` in `~/.zshrc` and run the following commands in the terminal:
 
 ```bash
 mkdir $ZSH_CUSTOM/plugins/poetry
