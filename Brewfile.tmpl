@@ -27,14 +27,20 @@ cask "mongodb-compass"
 cask "dbeaver-community"
 cask "insomnia"
 cask "vlc"
-cask "maccy" # clipboard manager
-cask "alt-tab" # windows-like alt-tab on mac
-cask "stretchly" # stretch reminders
-cask "logi-options-plus" # if using logitech bluetooth mouse, this fixes lag issues
-cask "parsec" # best remote desktop software
-cask "chrome-remote-desktop-host" # backup remote desktop
-cask "microsoft-teams"
-cask "microsoft-office"
+# clipboard manager
+cask "maccy"
+# windows-like alt-tab on mac
+cask "alt-tab" 
+# stretch reminders, no_quarantine required for it to work
+cask "stretchly", args: { no_quarantine: true }
+# if using logitech bluetooth mouse, this fixes lag issues
+cask "logi-options-plus" 
+# best remote desktop software
+cask "parsec"
+# backup remote desktop
+cask "chrome-remote-desktop-host"
+# cask "microsoft-teams"
+# cask "microsoft-office"
 
 # Fonts
 cask "font-hack-nerd-font"
