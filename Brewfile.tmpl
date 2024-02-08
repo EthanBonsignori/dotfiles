@@ -10,7 +10,6 @@ brew "git-extras"
 brew "git"
 brew "mas"
 brew "node"
-brew "python3"
 brew "nvm"
 brew "zsh-syntax-highlighting"
 brew "zsh-autosuggestions"
@@ -26,19 +25,24 @@ cask "docker"
 cask "mongodb-compass"
 cask "dbeaver-community"
 cask "insomnia"
+cask "vlc"
+cask "maccy" # clipboard manager
+cask "alt-tab" # windows-like alt-tab on mac
+cask "stretchly" # stretch reminders
+cask "logi-options-plus" # if using logitech bluetooth mouse, this fixes lag issues
+cask "parsec" # best remote desktop software
+cask "chrome-remote-desktop-host" # backup remote desktop
 cask "microsoft-teams"
 cask "microsoft-office"
-cask "vlc"
-cask "maccy"
-cask "stretchly"
-cask "logi-options-plus"
-cask "parsec"
-cask "chrome-remote-desktop-host"
 
 # Fonts
 cask "font-hack-nerd-font"
 cask "font-inconsolata-for-powerline"
 cask "font-menlo-for-powerline"
+
+# https://github.com/bramstein/homebrew-webfonttools
+tap "bramstein/webfonttools"
+brew "woff2"
 
 # Mac store apps
 mas "Xcode", id: 497799835
