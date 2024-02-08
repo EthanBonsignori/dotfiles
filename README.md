@@ -83,3 +83,16 @@ brew bundle install
   - Add period with double-space: off
   - For double quotes: "abc"
   - For single quotes: 'abc'
+
+---
+
+# Inspiration
+
+<u>[Automating the Setup of a New Mac With All Your Apps, Preferences, and Development Tools - Moncef Belyamani](https://www.moncefbelyamani.com/automating-the-setup-of-a-new-mac-with-all-your-apps-preferences-and-development-tools/)
+
+[Automate Mac OS X Configuration by using Brewfile - Satoru Sasozaki](https://medium.com/@satorusasozaki/automate-mac-os-x-configuration-by-using-brewfile-58a78ce5cc53)
+
+[Sync iTerm2 Profile with Dotfiles Repository - Stratus3D](http://stratus3d.com/blog/2015/02/28/sync-iterm2-profile-with-dotfiles-repository/)
+
+[renemar's dotfiles](https://github.com/renemarc/dotfiles/)
+</u>
