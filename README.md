@@ -27,6 +27,7 @@ brew bundle install
 ```
 
 5. Open the following apps:
+
    - **Google Chrome**: sign in to sync bookmarks, extensions, and settings.
    - **Visual Studio Code**: sign in to sync settings and extensions.
    - **iTerm2**: set as default terminal. Open settings, General->Preferences and load preferences from custom folder or URL,
@@ -38,6 +39,36 @@ brew bundle install
    - **AltTab**: run at startup.
    - **Stretchly**: start stretchly automatically at startup.
    - **Microsoft Word**: sign into windows account.
+
+6. Setup nvm/Node.js:
+
+```bash
+nvm install node
+nvm use node
+```
+
+7. Setup Python
+
+```bash
+brew install pyenv # should be installed already with Brewfile
+pyenv --version
+pyenv install 3.12 # or whatever version you want
+pyenv global 3.12
+```
+
+8. Setup poetry for Python package management:
+
+```bash
+brew install pipx # should be installed already with Brewfile
+pipx install poetry
+```
+
+for poetry shell completions:
+
+```bash
+mkdir $ZSH_CUSTOM/plugins/poetry
+poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
+```
 
 ## System Settings
 
