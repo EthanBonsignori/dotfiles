@@ -134,3 +134,17 @@ alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew' # fix brew with pye
 
 # use starship theme (needs to be at the end)
 eval "$(starship init zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ethan/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ethan/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ethan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ethan/google-cloud-sdk/completion.zsh.inc'; fi
+
+# pnpm
+export PNPM_HOME="/Users/ethan/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
