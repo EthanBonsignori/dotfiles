@@ -121,6 +121,7 @@ poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
 ## Finder
 
 #### Open Finder
+- Press hotkey CMD+Shift+. to toggle hidden files
 - Select "View"
   - Show Status Bar
   - Show Path Bar
