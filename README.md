@@ -69,6 +69,7 @@ for poetry shell completions, verify poetry is listed under `plugins` in `~/.zsh
 mkdir $ZSH_CUSTOM/plugins/poetry
 poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
 ```
+ 
 
 ## System Settings
 
@@ -107,14 +108,25 @@ poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
 - Ask Siri: off
 
 #### Keyboard
-
+- Click "Keyboard Shortcuts..." -> Services -> Expand "Files and Folders"
+  - Unselect both New Terminal options
+  - Select New iTerm2 options
 - Text Input -> Input Sources -> "Edit..."
   - Correct spelling automatically: off
   - Capitalize words automatically: off
   - Add period with double-space: off
   - For double quotes: "abc"
   - For single quotes: 'abc'
+ 
+## Finder
 
+#### Open Finder
+- Select "View"
+  - Show Status Bar
+  - Show Path Bar
+- Right Click->"Show View Options"
+  - Text Size: 14pt
+  - Select "Show Item Info" and "Show icon Preview"
 ---
 
 # Inspiration
