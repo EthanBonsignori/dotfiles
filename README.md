@@ -38,7 +38,6 @@ brew bundle install
    - **Maccy**: run at startup.
    - **AltTab**: run at startup.
    - **Stretchly**: start stretchly automatically at startup.
-   - **Microsoft Word**: sign into windows account.
 
 6. Setup nvm/Node.js:
 
@@ -47,7 +46,19 @@ nvm install node
 nvm use node
 ```
 
-7. Setup Python
+7. Install Claude Code:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+   Then authenticate:
+
+```bash
+claude
+```
+
+8. Setup Python
 
 ```bash
 brew install pyenv # should be installed already with Brewfile
@@ -56,7 +67,7 @@ pyenv install 3.12 # or whatever version you want
 pyenv global 3.12
 ```
 
-8. Setup poetry for Python package management:
+9. Setup poetry for Python package management:
 
 ```bash
 brew install pipx # should be installed already with Brewfile
