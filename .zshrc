@@ -3,17 +3,19 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export WORK_DIR="~/Work/"
+export PROJECTS_DIR="~/Projects/"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell" # overriden by starship
+# ZSH_THEME="robbyrussell" overriden by starship
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
+# Ifgit p set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
@@ -114,32 +116,44 @@ autoload -U compinit && compinit
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# load aliases file
+# [ -f .aliases ] && source .aliases
 alias r="source ~/.zshrc" # reload zsh configuration
 alias z="code ~/.zshrc" # open zsh configuration in vscode
+alias cdw="cd $WORK_DIR"
+alias cdp="cd $PROJECTS_DIR"
+
+# git
+alias gres="git reset --soft HEAD~1"
+alias gsta="git stash"
+alias gstap="git stash pop"
 
 # load nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# load pyenv
-# export PYENV_ROOT="$HOME/.pyenv"
-# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
+# auto 'nvm use' when .nvmrc is present
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
 
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew' # fix brew with pyenv
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
 
-# https://github.com/nvbn/thefuck
-# eval "$(thefuck --alias fuck)" # cannot get it to use pyenv's python :(
-
-# use starship theme (needs to be at the end)
-eval "$(starship init zsh)"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ethan/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ethan/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/ethan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ethan/google-cloud-sdk/completion.zsh.inc'; fi
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 # pnpm
 export PNPM_HOME="/Users/ethan/Library/pnpm"
@@ -148,3 +162,11 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# load pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# use starship theme (needs to be at the end)
+eval "$(starship init zsh)"
